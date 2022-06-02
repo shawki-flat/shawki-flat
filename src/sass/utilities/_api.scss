@@ -1,0 +1,116 @@
+@use "../variables";
+
+$layout-utilities: inline, block, inline-block, flex, grid, none;
+$flex-direction-utilities: row, row-reverse, column, column-reverse;
+$align-items-utilities: baseline, stretch, center, flex-start, flex-end;
+$justify-content-utilities: baseline, stretch, center, flex-start, flex-end,
+  space-around, space-between, space-evenly;
+
+$typography-utilities: (
+  "font-size": (
+    "prefix": "font-size",
+    "values": variables.$font-size-values,
+  ),
+  "font-weight": (
+    "prefix": "font-weight",
+    "values": variables.$font-weight-values,
+  ),
+  "line-height": (
+    "prefix": "line-height",
+    "values": variables.$line-height-values,
+  ),
+  "letter-spacing": (
+    "prefix": "letter-spacing",
+    "values": variables.$letter-spacing-values,
+  ),
+  "text-decoration": (
+    "prefix": "text-decoration",
+    "values": variables.$text-decoration-utilities,
+  ),
+  "text-transform": (
+    "prefix": "text-transform",
+    "values": variables.$text-transform-utilities,
+  ),
+  "text-align": (
+    "prefix": "text-align",
+    "values": variables.$text-align-utilities,
+  ),
+);
+
+$aspect-ratio-utilities: (
+  "aspect-ratio": (
+    "prefix": "aspect-ratio",
+    "values": variables.$aspect-ratio-values,
+  ),
+);
+
+$box-sizing-utilities: (
+  "padding": (
+    "prefix": "p",
+    "values": variables.$space-values,
+  ),
+  "padding-top": (
+    "prefix": "pt",
+    "values": variables.$space-values,
+  ),
+  "padding-right": (
+    "prefix": "pr",
+    "values": variables.$space-values,
+  ),
+  "padding-bottom": (
+    "prefix": "pb",
+    "values": variables.$space-values,
+  ),
+  "padding-left": (
+    "prefix": "pl",
+    "values": variables.$space-values,
+  ),
+  "margin": (
+    "prefix": "m",
+    "values": variables.$space-values,
+  ),
+  "margin-top": (
+    "prefix": "mt",
+    "values": variables.$space-values,
+  ),
+  "margin-right": (
+    "prefix": "mr",
+    "values": variables.$space-values,
+  ),
+  "margin-bottom": (
+    "prefix": "mb",
+    "values": variables.$space-values,
+  ),
+  "margin-left": (
+    "prefix": "ml",
+    "values": variables.$space-values,
+  ),
+);
+
+$border-radius-utilities: (
+  "border-radius": (
+    "prefix": "border-radius",
+    "values": variables.$border-radius-values,
+  ),
+);
+
+$box-shadow-utilities: (
+  "box-shadow": (
+    "prefix": "box-shadow",
+    "values": variables.$box-shadow-values,
+  ),
+);
+
+$transition-utilities: (
+  "transition": (
+    "prefix": "transition",
+    "values": variables.$transition-values,
+  ),
+);
+
+$layer-utilities: (
+  "z-index": (
+    "prefix": "layer",
+    "values": variables.$layer-values,
+  ),
+);

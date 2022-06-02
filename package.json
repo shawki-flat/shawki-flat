@@ -1,0 +1,53 @@
+{
+  "name": "shawki-flat",
+  "version": "0.0.0-shawki-flat",
+  "description": "Shawki Flat is the light package that will make the design of your web applications spreads faster",
+  "directories": {
+    "cli": "src/cli",
+    "sass": "src/sass",
+    "css": "dist/css",
+    "doc": "docs"
+  },
+  "files": [
+    "src/cli",
+    "src/sass",
+    "dist/css"
+  ],
+  "bin": {
+    "shawki-flat": "src/cli/index.js",
+    "shawki-cli": "src/cli/index.js"
+  },
+  "scripts": {
+    "build:library": "node src/cli --input src/sass/library.scss --output dist/css/library.css --purge false",
+    "build:reset": "node src/cli --input src/sass/reset.scss --output dist/css/reset.css --purge false",
+    "build:properties": "node src/cli --input src/sass/properties.scss --output dist/css/properties.css --purge false",
+    "build:utilities": "node src/cli --input src/sass/utilities.scss --output dist/css/utilities.css --purge false"
+  },
+  "keywords": [
+    "shawki-flat",
+    "flat-design",
+    "design"
+  ],
+  "license": "MIT",
+  "author": "shawkidiurnal <shawkidiurnal@outlook.com> (https://github.com/shawkidiurnal)",
+  "homepage": "https://github.com/shawki-flat/shawki-flat",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shawki-flat/shawki-flat.git"
+  },
+  "bugs": {
+    "email": "shawkidiurnal@outlook.com",
+    "url": "https://github.com/shawki-flat/shawki-flat/issues"
+  },
+  "dependencies": {
+    "commander": "9.2.0",
+    "prettier": "2.6.2",
+    "sass": "1.51.0",
+    "postcss": "8.4.14",
+    "postcss-import": "14.1.0",
+    "postcss-nested": "5.0.6",
+    "postcss-discard-duplicates": "5.1.0",
+    "postcss-discard-comments": "5.1.1",
+    "@fullhuman/postcss-purgecss": "4.1.3"
+  }
+}

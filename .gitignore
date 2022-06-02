@@ -1,0 +1,6 @@
+.vscode
+.cache
+public
+build
+node_modules
+package-lock.json

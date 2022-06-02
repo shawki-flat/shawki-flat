@@ -1,0 +1,20 @@
+@use "variables";
+@use "mixins";
+
+:root {
+  @include mixins.properties(font-size, variables.$font-size-values);
+  @include mixins.properties(line-height, variables.$line-height-values);
+  @include mixins.properties(letter-spacing, variables.$letter-spacing-values);
+
+  @include mixins.properties(aspect-ratio, variables.$aspect-ratio-values);
+  @include mixins.properties(space, variables.$space-values);
+  @include mixins.properties(ratio, variables.$percentage-ratio-values);
+  @include mixins.properties(ratio, variables.$screen-width-ratio-values);
+  @include mixins.properties(ratio, variables.$screen-height-ratio-values);
+
+  @include mixins.properties(border, variables.$border-values);
+  @include mixins.properties(border-radius, variables.$border-radius-values);
+  @include mixins.properties(box-shadow, variables.$box-shadow-values);
+  @include mixins.properties(transition, variables.$transition-values);
+  @include mixins.properties(layer, variables.$layer-values);
+}

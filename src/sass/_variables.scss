@@ -1,0 +1,368 @@
+@use "sass:list";
+@use "sass:math";
+
+$font-size-base: 1rem;
+$font-size-xs: $font-size-base * 0.75;
+$font-size-sm: $font-size-base * 0.875;
+$font-size-default: $font-size-base * 1;
+$font-size-md: $font-size-base * 1.25;
+$font-size-lg: $font-size-base * 1.5;
+$font-size-xl-1: $font-size-base * 1.75;
+$font-size-xl-2: $font-size-base * 2;
+$font-size-xl-3: $font-size-base * 2.25;
+$font-size-xl-4: $font-size-base * 3;
+$font-size-xl-5: $font-size-base * 3.75;
+$font-size-xl-6: $font-size-base * 4.5;
+$font-size-xl-7: $font-size-base * 6;
+$font-size-xl-8: $font-size-base * 7.5;
+
+$font-size-values: (
+  "xs": $font-size-xs,
+  "sm": $font-size-sm,
+  "default": $font-size-default,
+  "md": $font-size-md,
+  "lg": $font-size-lg,
+  "xl-1": $font-size-xl-1,
+  "xl-2": $font-size-xl-2,
+  "xl-3": $font-size-xl-3,
+  "xl-4": $font-size-xl-4,
+  "xl-5": $font-size-xl-5,
+  "xl-6": $font-size-xl-6,
+  "xl-7": $font-size-xl-7,
+  "xl-8": $font-size-xl-8,
+);
+
+$font-weight-100: 100;
+$font-weight-200: 200;
+$font-weight-300: 300;
+$font-weight-400: 400;
+$font-weight-500: 500;
+$font-weight-600: 600;
+$font-weight-700: 700;
+$font-weight-800: 800;
+$font-weight-900: 900;
+
+$font-weight-values: (
+  "100": $font-weight-100,
+  "200": $font-weight-200,
+  "300": $font-weight-300,
+  "400": $font-weight-400,
+  "500": $font-weight-500,
+  "600": $font-weight-600,
+  "700": $font-weight-700,
+  "800": $font-weight-800,
+  "900": $font-weight-900,
+);
+
+$line-height-base: 1;
+$line-height-default: $line-height-base * 1;
+$line-height-sm: $line-height-base * 1.2;
+$line-height-md: $line-height-base * 1.4;
+$line-height-lg: $line-height-base * 1.6;
+
+$line-height-values: (
+  "default": $line-height-default,
+  "sm": $line-height-sm,
+  "md": $line-height-md,
+  "lg": $line-height-lg,
+);
+
+$letter-spacing-base: 1rem;
+$letter-spacing-default: $letter-spacing-base * 0;
+$letter-spacing-sm: $letter-spacing-base * 0.125;
+$letter-spacing-md: $letter-spacing-base * 0.25;
+$letter-spacing-lg: $letter-spacing-base * 0.5;
+
+$letter-spacing-values: (
+  "sm": $letter-spacing-sm,
+  "md": $letter-spacing-md,
+  "lg": $letter-spacing-lg,
+);
+
+$text-transform-utilities: (
+  "lowercase": lowercase,
+  "uppercase": uppercase,
+  "capitalize": capitalize,
+);
+
+$text-decoration-utilities: (
+  "none": none,
+  "underline": underline,
+  "line-through": line-through,
+);
+
+$text-align-utilities: (
+  "left": left,
+  "center": center,
+  "right": right,
+);
+
+$display-font-sizes: (
+  "1": (
+    default: $font-size-xl-7,
+    screen-xl-1: $font-size-xl-6,
+    screen-lg: $font-size-xl-5,
+  ),
+  "2": (
+    default: $font-size-xl-6,
+    screen-xl-1: $font-size-xl-5,
+    screen-lg: $font-size-xl-4,
+  ),
+  "3": (
+    default: $font-size-xl-5,
+    screen-xl-1: $font-size-xl-4,
+    screen-lg: $font-size-xl-3,
+  ),
+  "4": (
+    default: $font-size-xl-4,
+    screen-xl-1: $font-size-xl-3,
+    screen-lg: $font-size-xl-2,
+  ),
+  "5": (
+    default: $font-size-xl-3,
+    screen-xl-1: $font-size-xl-2,
+    screen-lg: $font-size-xl-1,
+  ),
+  "6": (
+    default: $font-size-xl-2,
+    screen-xl-1: $font-size-xl-1,
+    screen-lg: $font-size-lg,
+  ),
+);
+
+$paragraph-font-sizes: (
+  default: (
+    default: $font-size-md,
+    screen-xl-1: $font-size-default,
+  ),
+  large: (
+    default: $font-size-lg,
+    screen-xl-1: $font-size-md,
+  ),
+);
+
+$overline-font-sizes: (
+  default: (
+    default: $font-size-md,
+    letter-spacing: normal,
+    text-transform: none,
+    screen-lg: $font-size-default,
+  ),
+  uppercase: (
+    default: $font-size-default,
+    letter-spacing: $letter-spacing-md,
+    text-transform: uppercase,
+    screen-lg: $font-size-default,
+  ),
+);
+
+$layout-row-columns: 6;
+$layout-columns: 12;
+
+$xs-media: 0rem;
+$sm-media: 36rem;
+$md-media: 48rem;
+$lg-media: 62rem;
+$xl-1-media: 75rem;
+$xl-2-media: 87.5rem;
+
+$layout-media-values: (
+  xs: $xs-media,
+  sm: $sm-media,
+  md: $md-media,
+  lg: $lg-media,
+  xl-1: $xl-1-media,
+  xl-2: $xl-2-media,
+);
+
+$container-width-values: (
+  sm: $sm-media - 2.25rem,
+  md: $md-media - 3rem,
+  lg: $lg-media - 2rem,
+  xl-1: $xl-1-media - 3.75rem,
+  xl-2: $xl-2-media - 5rem,
+);
+
+$aspect-ratio-square: list.slash(1, 1);
+$aspect-ratio-landscape: list.slash(3, 2);
+$aspect-ratio-portrait: list.slash(3, 4);
+$aspect-ratio-wide-screen: list.slash(2, 1);
+
+$aspect-ratio-values: (
+  "square": $aspect-ratio-square,
+  "landscape": $aspect-ratio-landscape,
+  "portrait": $aspect-ratio-portrait,
+  "wide-screen": $aspect-ratio-wide-screen,
+);
+
+$space-base: 1rem;
+$percentage-ratio-base: 1%;
+$screen-width-ratio-base: 1vw;
+$screen-height-ratio-base: 1vh;
+$ratio-values: (
+  "1-5": 20,
+  "2-5": 40,
+  "3-5": 60,
+  "4-5": 80,
+  "1-4": 25,
+  "3-4": 75,
+  "1-2": 50,
+  "1-1": 100,
+);
+
+$space-values: ();
+@for $value from 0 through 45 {
+  $current-map: (#{$value}: ($value * 0.25) * $space-base);
+  $space-values: map-merge($space-values, $current-map);
+}
+
+$percentage-ratio-values: ();
+$screen-width-ratio-values: ();
+$screen-height-ratio-values: ();
+$ratio-properties: (
+  "percentage": (
+    values: $percentage-ratio-values,
+    base: $percentage-ratio-base,
+  ),
+  "screen-width": (
+    values: $screen-width-ratio-values,
+    base: $screen-width-ratio-base,
+  ),
+  "screen-height": (
+    values: $screen-height-ratio-values,
+    base: $screen-height-ratio-base,
+  ),
+);
+
+@each $property-key, $property-map in $ratio-properties {
+  $property-values: map-get($property-map, "values");
+  $property-base: map-get($property-map, "base");
+
+  @each $key, $value in $ratio-values {
+    $current-map: (#{$property-key}-#{$key}: $value * $property-base);
+    $property-values: map-merge($current-map, $property-values);
+
+    $final-map: (
+      #{$property-key}:
+        (
+          values: $property-values,
+          base: $property-base,
+        )
+    );
+
+    $ratio-properties: map-merge($ratio-properties, $final-map);
+  }
+
+  @if ($property-key == "percentage") {
+    $percentage-ratio-values: $property-values;
+  } @else if ($property-key == "screen-width") {
+    $screen-width-ratio-values: $property-values;
+  } @else if ($property-key == "screen-height") {
+    $screen-height-ratio-values: $property-values;
+  }
+}
+
+$border-base: 1rem;
+$border-0: $border-base * 0;
+$border-1: $border-base * 0.0625;
+$border-2: $border-base * 0.125;
+$border-3: $border-base * 0.25;
+$border-4: $border-base * 0.5;
+
+$border-values: (
+  "0": $border-0,
+  "1": $border-1,
+  "2": $border-2,
+  "3": $border-3,
+  "4": $border-4,
+);
+
+$border-radius-base: 1rem;
+$border-radius-xm: $border-radius-base * 0.125;
+$border-radius-sm: $border-radius-base * 0.25;
+$border-radius-default: $border-radius-base * 0.5;
+$border-radius-md: $border-radius-base * 1;
+$border-radius-lg: $border-radius-base * 1.25;
+$border-radius-xl-1: $border-radius-base * 1.5;
+$border-radius-xl-2: $border-radius-base * 2.5;
+$border-radius-1-2: 50%;
+$border-radius-1-1: 100%;
+
+$border-radius-values: (
+  "xm": $border-radius-xm,
+  "sm": $border-radius-sm,
+  "default": $border-radius-default,
+  "md": $border-radius-md,
+  "lg": $border-radius-lg,
+  "xl-1": $border-radius-xl-1,
+  "xl-2": $border-radius-xl-2,
+  "1-2": $border-radius-1-2,
+  "1-1": $border-radius-1-1,
+);
+
+$box-shadow-xm: 0 0.125rem 0.125rem 0 rgba(20, 20, 20, 0.05);
+$box-shadow-sm: 0 0.25rem 0.25rem 0 rgba(20, 20, 20, 0.05);
+$box-shadow-default: 0 0.5rem 0.5rem 0 rgba(20, 20, 20, 0.05);
+$box-shadow-md: 0 1.25rem 1.25rem 0 rgba(20, 20, 20, 0.05);
+$box-shadow-lg: 0 1.5rem 2.5rem 0 rgba(20, 20, 20, 0.05);
+$box-shadow-xl: 0 2.5rem 5rem 0 rgba(20, 20, 20, 0.05);
+
+$box-shadow-values: (
+  "xm": $box-shadow-xm,
+  "sm": $box-shadow-sm,
+  "default": $box-shadow-default,
+  "md": $box-shadow-md,
+  "lg": $box-shadow-lg,
+  "xl": $box-shadow-xl,
+);
+
+$transition-ease-slow: all 0.8s ease;
+$transition-ease: all 0.4s ease;
+$transition-ease-fast: all 0.2s ease;
+$transition-ease-in-slow: all 0.8s ease-in;
+$transition-ease-in: all 0.4s ease-in;
+$transition-ease-in-fast: all 0.2s ease-in;
+$transition-ease-out-slow: all 0.8s ease-out;
+$transition-ease-out: all 0.4s ease-out;
+$transition-ease-out-fast: all 0.2s ease-out;
+$transition-ease-in-out-slow: all 0.8s ease-in-out;
+$transition-ease-in-out: all 0.4s ease-in-out;
+$transition-ease-in-out-fast: all 0.2s ease-in-out;
+
+$transition-values: (
+  "ease-slow": $transition-ease-slow,
+  "ease": $transition-ease,
+  "ease-fast": $transition-ease-fast,
+  "ease-in-slow": $transition-ease-in-slow,
+  "ease-in": $transition-ease-in,
+  "ease-in-fast": $transition-ease-in-fast,
+  "ease-out-slow": $transition-ease-out-slow,
+  "ease-out": $transition-ease-out,
+  "ease-out-fast": $transition-ease-out-fast,
+  "ease-in-out-slow": $transition-ease-in-out-slow,
+  "ease-in-out": $transition-ease-in-out,
+  "ease-in-out-fast": $transition-ease-in-out-fast,
+);
+
+$layer-base: 1;
+$layer-1: $layer-base * 1;
+$layer-2: $layer-base * 2;
+$layer-3: $layer-base * 3;
+$layer-4: $layer-base * 4;
+$layer-5: $layer-base * 5;
+$layer-6: $layer-base * 6;
+$layer-7: $layer-base * 7;
+$layer-8: $layer-base * 8;
+$layer-9: $layer-base * 9;
+
+$layer-values: (
+  "1": $layer-1,
+  "2": $layer-2,
+  "3": $layer-3,
+  "4": $layer-4,
+  "5": $layer-5,
+  "6": $layer-6,
+  "7": $layer-7,
+  "8": $layer-8,
+  "9": $layer-9,
+);

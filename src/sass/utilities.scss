@@ -1,0 +1,12 @@
+@use "variables";
+@use "mixins";
+@use "utilities/api";
+@use "utilities/layout";
+
+@include mixins.utilities(api.$typography-utilities);
+@include mixins.utilities(api.$aspect-ratio-utilities);
+@include mixins.utilities(api.$box-sizing-utilities);
+@include mixins.utilities(api.$border-radius-utilities);
+@include mixins.utilities(api.$box-shadow-utilities);
+@include mixins.utilities(api.$transition-utilities);
+@include mixins.utilities(api.$layer-utilities);

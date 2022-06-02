@@ -1,0 +1,426 @@
+/*! purgecss start ignore */
+
+@use "sass:math";
+@use "variables";
+
+$color-dark: #212121;
+$color-light: #fafafa;
+
+*,
+*::before,
+*::after {
+  font: inherit;
+  color: inherit;
+  padding: map-get(variables.$space-values, "0");
+  border-width: map-get(variables.$space-values, "0");
+  border-style: solid;
+  border-color: inherit;
+  margin: map-get(variables.$space-values, "0");
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: variables.$font-size-default;
+  font-weight: 400;
+  line-height: variables.$line-height-sm;
+  color: $color-dark;
+  background: $color-light;
+  -webkit-text-size-adjust: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+hr {
+  height: math.div(map-get(variables.$space-values, "1"), 4);
+  background: $color-dark;
+  border-width: map-get(variables.$space-values, "0");
+  border-style: solid;
+  border-color: inherit;
+  margin: map-get(variables.$space-values, "4")
+    map-get(variables.$space-values, "0");
+  opacity: map-get(variables.$percentage-ratio-values, "percentage-1-4");
+}
+
+%heading {
+  font-family: inherit;
+  font-weight: 500;
+  font-style: normal;
+  margin-bottom: map-get(variables.$space-values, "2");
+}
+
+h1,
+.heading-1 {
+  @extend %heading;
+  font-size: variables.$font-size-xl-4;
+  line-height: variables.$line-height-sm + 0.05;
+}
+
+h2,
+.heading-2 {
+  @extend %heading;
+  font-size: variables.$font-size-xl-3;
+  line-height: variables.$line-height-sm + 0.05;
+}
+
+h3,
+.heading-3 {
+  @extend %heading;
+  font-size: variables.$font-size-xl-2;
+  line-height: variables.$line-height-sm + 0.2;
+}
+
+h4,
+.heading-4 {
+  @extend %heading;
+  font-size: variables.$font-size-xl-1;
+  line-height: variables.$line-height-sm + 0.2;
+}
+
+h5,
+.heading-5 {
+  @extend %heading;
+  font-size: variables.$font-size-lg;
+  line-height: variables.$line-height-md + 0.1;
+}
+
+h6,
+.heading-6 {
+  @extend %heading;
+  font-size: variables.$font-size-md;
+  line-height: variables.$line-height-md + 0.1;
+}
+
+p {
+  font-size: variables.$font-size-default;
+  font-weight: 400;
+  line-height: variables.$line-height-lg;
+  margin-bottom: map-get(variables.$space-values, "4");
+}
+
+ol,
+ul,
+dl {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: map-get(variables.$space-values, "2");
+  list-style: none;
+  padding-left: map-get(variables.$space-values, "5");
+  margin-bottom: map-get(variables.$space-values, "4");
+}
+
+dt {
+  font-size: variables.$font-size-default;
+  font-weight: 700;
+  font-style: normal;
+  line-height: variables.$line-height-sm;
+}
+
+dd {
+  font-size: variables.$font-size-sm;
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: map-get(variables.$space-values, "2");
+  margin-left: map-get(variables.$space-values, "0");
+}
+
+a {
+  font-size: variables.$font-size-default;
+  font-weight: 400;
+  line-height: variables.$line-height-default;
+  text-decoration: underline;
+}
+
+a:not([href]):not([class]),
+a:not([href]):not([class]):hover {
+  color: inherit;
+  text-decoration: none;
+  cursor: default;
+}
+
+b,
+strong {
+  font-size: variables.$font-size-default;
+  font-weight: bolder;
+  font-style: inherit;
+}
+
+small {
+  font-size: variables.$font-size-sm;
+  font-weight: lighter;
+  font-style: inherit;
+}
+
+mark {
+  color: inherit;
+  background: $color-light;
+  padding: map-get(variables.$space-values, "2");
+  margin-bottom: map-get(variables.$space-values, "0");
+}
+
+sub,
+sup {
+  font-size: map-get(variables.$space-values, "3");
+  font-weight: lighter;
+  line-height: variables.$line-height-default * 0;
+  vertical-align: baseline;
+}
+
+sub {
+  position: relative;
+  bottom: map-get(variables.$space-values, "1") * -1;
+}
+
+sup {
+  position: relative;
+  top: map-get(variables.$space-values, "2") * -1;
+}
+
+abbr[title] {
+  text-decoration: underline dotted;
+  text-decoration-skip-ink: none;
+  -webkit-text-decoration: underline dotted;
+  -webkit-text-decoration-skip-ink: none;
+  cursor: help;
+}
+
+address {
+  font-size: variables.$font-size-default;
+  font-weight: 400;
+  font-style: normal;
+  line-height: variables.$line-height-sm;
+  margin-bottom: map-get(variables.$space-values, "4");
+}
+
+blockquote {
+  font-size: variables.$font-size-default;
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: map-get(variables.$space-values, "4");
+}
+
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace;
+  font-size: variables.$font-size-default;
+  font-weight: 400;
+  font-style: normal;
+  direction: inherit;
+}
+
+pre {
+  display: block;
+  font-size: variables.$font-size-sm;
+  margin-bottom: map-get(variables.$space-values, "4");
+  overflow: auto;
+}
+
+pre code {
+  font-size: inherit;
+  word-break: normal;
+  color: inherit;
+  background: transparent;
+}
+
+code {
+  font-size: variables.$font-size-sm;
+  word-wrap: break-word;
+  color: inherit;
+  background: transparent;
+}
+
+kbd {
+  font-size: variables.$font-size-sm;
+  color: $color-light;
+  background-color: $color-dark;
+  padding: map-get(variables.$space-values, "1")
+    map-get(variables.$space-values, "2");
+  border-radius: variables.$border-radius-sm;
+}
+
+kbd kbd {
+  font-size: variables.$font-size-default;
+  font-weight: 700;
+  padding: map-get(variables.$space-values, "0");
+}
+
+img,
+video {
+  display: block;
+  width: map-get(variables.$percentage-ratio-values, "percentage-1-1");
+  max-width: map-get(variables.$percentage-ratio-values, "percentage-1-1");
+  height: auto;
+}
+
+img,
+svg,
+progress {
+  vertical-align: middle;
+  margin-top: map-get(variables.$space-values, "2");
+  margin-bottom: map-get(variables.$space-values, "2");
+}
+
+table {
+  color: inherit;
+  background: transparent;
+  caption-side: bottom;
+  border-collapse: collapse;
+}
+
+caption {
+  font-family: inherit;
+  text-transform: none;
+  text-align: left;
+  padding-top: map-get(variables.$space-values, "2");
+  padding-bottom: map-get(variables.$space-values, "2");
+}
+
+thead,
+tbody,
+tfoot,
+tr,
+th,
+td {
+  color: inherit;
+  background: transparent;
+  border-width: map-get(variables.$space-values, "0");
+  border-style: solid;
+  border-color: inherit;
+}
+
+legend {
+  font-size: variables.$font-size-md;
+  font-weight: 500;
+  line-height: inherit;
+  padding: map-get(variables.$space-values, "0");
+  margin-bottom: map-get(variables.$space-values, "2");
+}
+
+label,
+output {
+  display: inline-block;
+  font-size: variables.$font-size-default;
+  font-weight: 500;
+  font-style: normal;
+  line-height: variables.$line-height-default;
+}
+
+input,
+select,
+optgroup,
+option,
+textarea,
+button {
+  font-family: inherit;
+  font-size: variables.$font-size-default;
+  line-height: variables.$line-height-default;
+  text-transform: none;
+  word-wrap: normal;
+  color: inherit;
+  background: transparent;
+  border-radius: map-get(variables.$space-values, "0");
+  margin: map-get(variables.$space-values, "0");
+}
+
+select,
+button {
+  -webkit-appearance: button;
+  appearance: button;
+  pointer-events: all;
+  cursor: pointer;
+}
+
+select:disabled,
+button:disabled {
+  outline: none;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+::-moz-focus-inner,
+::-webkit-color-swatch-wrapper {
+  padding: map-get(variables.$space-values, "0");
+  border-width: map-get(variables.$space-values, "0");
+  border-style: solid;
+  border-color: inherit;
+  margin: map-get(variables.$space-values, "0");
+}
+
+::-webkit-inner-spin-button {
+  height: auto;
+  min-height: auto;
+  max-height: auto;
+}
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+  pointer-events: none;
+  cursor: default;
+}
+
+::-webkit-file-upload-button,
+::-moz-file-upload-button {
+  -webkit-appearance: button;
+  appearance: button;
+  font-family: inherit;
+  pointer-events: all;
+  cursor: pointer;
+}
+
+summary {
+  display: list-item;
+  font-family: inherit;
+  font-size: variables.$font-size-default;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+[hidden] {
+  display: none;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+@media only screen and (max-width: 80rem) {
+  h1,
+  .heading-1 {
+    font-size: variables.$font-size-xl-3;
+    line-height: variables.$line-height-sm - 0.05;
+  }
+
+  h2,
+  .heading-2 {
+    font-size: variables.$font-size-xl-2;
+    line-height: variables.$line-height-sm - 0.05;
+  }
+
+  h3,
+  .heading-3 {
+    font-size: variables.$font-size-xl-1;
+    line-height: variables.$line-height-md - 0.15;
+  }
+
+  h4,
+  .heading-4 {
+    font-size: variables.$font-size-lg;
+    line-height: variables.$line-height-md - 0.15;
+  }
+
+  h5,
+  .heading-5 {
+    font-size: variables.$font-size-md;
+    line-height: variables.$line-height-lg - 0.2;
+  }
+
+  h6,
+  .heading-6 {
+    font-size: variables.$font-size-default;
+    line-height: variables.$line-height-lg - 0.2;
+  }
+}
+
+/*! purgecss end ignore */

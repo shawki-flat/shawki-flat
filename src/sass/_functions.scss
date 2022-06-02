@@ -1,0 +1,32 @@
+@use "variables";
+
+@function fetch-actual-media(
+  $media-values: variables.$layout-media-values,
+  $key
+) {
+  $media: map-get($media-values, $key);
+  @if ($media != 0rem) {
+    @return $media;
+  } @else {
+    @return null;
+  }
+}
+
+@function generate-media-utilities(
+  $media-values: variables.$layout-media-values,
+  $key: sm,
+  $right: false
+) {
+  $media: fetch-actual-media($media-values, $key);
+  @if ($media == null) {
+    @return null;
+  }
+
+  @if ($right) {
+    @return "-" + #{$key};
+  }
+
+  @if ($right == false) {
+    @return #{$key} + "-";
+  }
+}

@@ -1,0 +1,92 @@
+@use "variables";
+@use "functions";
+
+@mixin properties($property, $values) {
+  @each $key, $value in $values {
+    @if ($key == "default") {
+      --#{$property}: #{$value};
+    } @else {
+      --#{$property}-#{$key}: #{$value};
+    }
+  }
+}
+
+@mixin utilities($map-utilities) {
+  @each $property, $map in $map-utilities {
+    $prefix: map-get($map, "prefix");
+    $values: map-get($map, "values");
+
+    @each $key, $value in $values {
+      @if ($key == "default") {
+        .#{$prefix} {
+          #{$property}: $value !important;
+        }
+      } @else {
+        .#{$prefix}-#{$key} {
+          #{$property}: $value !important;
+        }
+      }
+    }
+  }
+}
+
+@mixin generate-media-declarations(
+  $media-values: variables.$layout-media-values,
+  $key
+) {
+  $media: functions.fetch-actual-media($media-values, $key);
+  @if ($media) {
+    @media (min-width: $media) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin generate-container-style() {
+  width: map-get(variables.$percentage-ratio-values, "percentage-1-1");
+  padding-right: map-get(variables.$space-values, "4");
+  padding-left: map-get(variables.$space-values, "4");
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@mixin display-style($default-size, $xl-1-size, $lg-size) {
+  font-size: $default-size;
+  font-weight: 300;
+  line-height: variables.$line-height-sm + 0.05;
+
+  @media screen and (max-width: 80rem) {
+    font-size: $xl-1-size;
+  }
+
+  @media screen and (max-width: 62rem) {
+    font-size: $lg-size;
+  }
+}
+
+@mixin paragraph-style($default-size, $xl-1-size) {
+  @extend %paragraph;
+  font-size: $default-size;
+
+  @media screen and (max-width: 80rem) {
+    font-size: $xl-1-size;
+  }
+}
+
+@mixin overline-style(
+  $default-size,
+  $lg-size,
+  $letter-spacing,
+  $text-transform
+) {
+  @extend %overline;
+  font-size: $default-size;
+  letter-spacing: $letter-spacing;
+  text-transform: $text-transform;
+
+  @media screen and (max-width: 62rem) {
+    font-size: $lg-size;
+  }
+}

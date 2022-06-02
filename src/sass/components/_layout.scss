@@ -1,0 +1,46 @@
+@use "../variables";
+@use "../mixins";
+@use "../functions";
+
+.container,
+.container-fluid {
+  @include mixins.generate-container-style();
+}
+
+@each $container-width-key,
+  $container-width-value in variables.$container-width-values
+{
+  .container-#{$container-width-key} {
+    @extend .container-fluid;
+  }
+
+  @include mixins.generate-media-declarations(
+    variables.$layout-media-values,
+    $container-width-key
+  ) {
+    %container-#{$container-width-key} {
+      max-width: $container-width-value;
+    }
+
+    $extend-media: true;
+    @each $layout-media-key,
+      $layout-media-value in variables.$layout-media-values
+    {
+      $utility: functions.generate-media-utilities(
+        variables.$layout-media-values,
+        $layout-media-key,
+        true
+      );
+
+      @if ($extend-media) {
+        .#{container + $utility} {
+          @extend %container-#{$container-width-key};
+        }
+
+        @if ($container-width-key == $layout-media-key) {
+          $extend-media: false;
+        }
+      }
+    }
+  }
+}

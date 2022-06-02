@@ -1,0 +1,162 @@
+@use "../variables";
+@use "../mixins";
+@use "../functions";
+@use "api";
+
+@each $layout-media-key, $layout-media-value in variables.$layout-media-values {
+  $utility: functions.generate-media-utilities(
+    variables.$layout-media-values,
+    $layout-media-key
+  );
+
+  @include mixins.generate-media-declarations(
+    variables.$layout-media-values,
+    $layout-media-key
+  ) {
+    @each $value in api.$layout-utilities {
+      .#{$utility + display + "-" + $value} {
+        display: $value !important;
+      }
+    }
+
+    @each $value in api.$flex-direction-utilities {
+      .#{$utility + flex-direction + "-" + $value} {
+        flex-direction: $value !important;
+      }
+    }
+
+    @each $value in api.$justify-content-utilities {
+      .#{$utility + justify-content + "-" + $value} {
+        justify-content: $value !important;
+      }
+    }
+
+    @each $value in api.$align-items-utilities {
+      .#{$utility + align-items + "-" + $value} {
+        align-items: $value !important;
+      }
+    }
+
+    @for $index from 1 through 12 {
+      .#{$utility + grid-columns + "-" + $index} {
+        grid-template-columns: repeat($index, minmax(0, 1fr)) !important;
+      }
+
+      @if ($index == 12) {
+        .#{$utility + grid-columns-none} {
+          grid-template-columns: none !important;
+        }
+      }
+    }
+
+    @for $index from 1 through 12 {
+      @if ($index == 1) {
+        .#{$utility + column-span-auto} {
+          grid-column: auto !important;
+        }
+      }
+
+      .#{$utility + column-span + "-" + $index} {
+        grid-column: span $index / span $index !important;
+      }
+
+      @if ($index == 12) {
+        .#{$utility + column-span-full} {
+          grid-column: span 1 / span -1 !important;
+        }
+      }
+    }
+
+    @for $index from 1 through 13 {
+      .#{$utility + column-start + "-" + $index} {
+        grid-column-start: $index !important;
+      }
+
+      @if ($index == 13) {
+        .#{$utility + column-start-auto} {
+          grid-column-start: auto !important;
+        }
+      }
+    }
+
+    @for $index from 1 through 13 {
+      .#{$utility + column-end + "-" + $index} {
+        grid-column-end: $index !important;
+      }
+
+      @if ($index == 13) {
+        .#{$utility + column-end-auto} {
+          grid-column-end: auto !important;
+        }
+      }
+    }
+
+    @for $index from 1 through 12 {
+      .#{$utility + grid-rows + "-" + $index} {
+        grid-template-rows: repeat($index, minmax(0, 1fr)) !important;
+      }
+
+      @if ($index == 12) {
+        .#{$utility + grid-rows-none} {
+          grid-template-rows: none !important;
+        }
+      }
+    }
+
+    @for $index from 1 through 12 {
+      @if ($index == 1) {
+        .#{$utility + row-span-auto} {
+          grid-row: auto !important;
+        }
+      }
+
+      .#{$utility + row-span + "-" + $index} {
+        grid-row: span $index / span $index !important;
+      }
+
+      @if ($index == 12) {
+        .#{$utility + row-span-full} {
+          grid-row: span 1 / span -1 !important;
+        }
+      }
+    }
+
+    @for $index from 1 through 13 {
+      .#{$utility + row-start + "-" + $index} {
+        grid-row-start: $index !important;
+      }
+
+      @if ($index == 13) {
+        .#{$utility + row-start-auto} {
+          grid-row-start: auto !important;
+        }
+      }
+    }
+
+    @for $index from 1 through 13 {
+      .#{$utility + row-end + "-" + $index} {
+        grid-row-end: $index !important;
+      }
+
+      @if ($index == 13) {
+        .#{$utility + row-end-auto} {
+          grid-row-end: auto !important;
+        }
+      }
+    }
+
+    @each $key, $value in variables.$space-values {
+      .#{$utility + gap + "-" + $key} {
+        gap: $value !important;
+      }
+
+      .#{$utility + gap-x + "-" + $key} {
+        column-gap: $value !important;
+      }
+
+      .#{$utility + gap-y + "-" + $key} {
+        row-gap: $value !important;
+      }
+    }
+  }
+}

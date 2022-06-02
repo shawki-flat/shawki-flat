@@ -1,0 +1,108 @@
+@use "../variables";
+@use "../mixins";
+
+@each $display, $values in variables.$display-font-sizes {
+  .display-#{$display} {
+    @include mixins.display-style(
+      map-get($values, "default"),
+      map-get($values, "screen-xl-1"),
+      map-get($values, "screen-lg")
+    );
+  }
+}
+
+%paragraph {
+  font-weight: 400;
+  line-height: variables.$line-height-lg;
+  text-align: inherit;
+  color: rgba(20, 20, 20, 0.8);
+}
+
+@each $paragraph, $values in variables.$paragraph-font-sizes {
+  @if ($paragraph == "default") {
+    .paragraph {
+      @include mixins.paragraph-style(
+        map-get($values, "default"),
+        map-get($values, "screen-xl-1")
+      );
+    }
+  } @else {
+    .paragraph-#{$paragraph} {
+      @include mixins.paragraph-style(
+        map-get($values, "default"),
+        map-get($values, "screen-xl-1")
+      );
+    }
+  }
+}
+
+%overline {
+  font-weight: 500;
+  line-height: variables.$line-height-default;
+  text-align: inherit;
+  color: rgba(20, 20, 20, 0.8);
+}
+
+@each $overline, $values in variables.$overline-font-sizes {
+  @if ($overline == "default") {
+    .overline {
+      @include mixins.overline-style(
+        map-get($values, "default"),
+        map-get($values, "screen-lg"),
+        map-get($values, "letter-spacing"),
+        map-get($values, "text-transform")
+      );
+    }
+  } @else {
+    .overline-#{$overline} {
+      @include mixins.overline-style(
+        map-get($values, "default"),
+        map-get($values, "screen-lg"),
+        map-get($values, "letter-spacing"),
+        map-get($values, "text-transform")
+      );
+    }
+  }
+}
+
+.small,
+.strong,
+.emphasis {
+  color: inherit;
+  background: transparent;
+  padding: map-get(variables.$space-values, "0");
+  margin-bottom: map-get(variables.$space-values, "0");
+}
+
+.small {
+  font-size: variables.$font-size-sm;
+  font-weight: lighter;
+  font-style: inherit;
+}
+
+.strong {
+  font-size: inherit;
+  font-weight: bolder;
+  font-style: inherit;
+}
+
+.emphasis {
+  font-size: inherit;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.highlight {
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  background: #e6e6e6;
+  padding: map-get(variables.$space-values, "2");
+  margin-bottom: map-get(variables.$space-values, "0");
+}
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
