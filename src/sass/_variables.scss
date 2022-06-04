@@ -370,13 +370,13 @@ $layer-values: (
 $color-red-50: #ffebee;
 $color-red-100: #ffcdd2;
 $color-red-200: #ef9a9a;
-$color-red-200: #e57373;
-$color-red-200: #ef5350;
-$color-red-200: #f44336;
-$color-red-200: #e53935;
-$color-red-200: #d32f2f;
-$color-red-200: #c62828;
-$color-red-200: #b71c1c;
+$color-red-300: #e57373;
+$color-red-400: #ef5350;
+$color-red-500: #f44336;
+$color-red-600: #e53935;
+$color-red-700: #d32f2f;
+$color-red-800: #c62828;
+$color-red-900: #b71c1c;
 
 $color-red-values: (
   "50": $color-red-50,
@@ -388,4 +388,27 @@ $color-red-values: (
   "600": $color-red-600,
   "700": $color-red-700,
   "800": $color-red-800,
+);
+
+$color-pink-50: #fce4ec;
+$color-pink-100: #f8bbd0;
+$color-pink-200: #f48fb1;
+$color-pink-300: #f06292;
+$color-pink-400: #ec407a;
+$color-pink-500: #e91e63;
+$color-pink-600: #d81b60;
+$color-pink-700: #c2185b;
+$color-pink-800: #ad1457;
+$color-pink-900: #880e4f;
+
+$color-pink-values: (
+  "50": $color-pink-50,
+  "100": $color-pink-100,
+  "200": $color-pink-200,
+  "300": $color-pink-300,
+  "400": $color-pink-400,
+  "500": $color-pink-500,
+  "600": $color-pink-600,
+  "700": $color-pink-700,
+  "800": $color-pink-800,
 );
