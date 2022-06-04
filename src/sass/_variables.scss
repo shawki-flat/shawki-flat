@@ -366,3 +366,26 @@ $layer-values: (
   "8": $layer-8,
   "9": $layer-9,
 );
+
+$color-red-50: #ffebee;
+$color-red-100: #ffcdd2;
+$color-red-200: #ef9a9a;
+$color-red-200: #e57373;
+$color-red-200: #ef5350;
+$color-red-200: #f44336;
+$color-red-200: #e53935;
+$color-red-200: #d32f2f;
+$color-red-200: #c62828;
+$color-red-200: #b71c1c;
+
+$color-red-values: (
+  "50": $color-red-50,
+  "100": $color-red-100,
+  "200": $color-red-200,
+  "300": $color-red-300,
+  "400": $color-red-400,
+  "500": $color-red-500,
+  "600": $color-red-600,
+  "700": $color-red-700,
+  "800": $color-red-800,
+);
